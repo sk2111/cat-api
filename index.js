@@ -1,6 +1,6 @@
 const cardContentRef = document.getElementById("content-container");
 const CAT_API_KEY = 'a1e91f89-0f88-4a32-b80f-721b8fcb4171';
-const CAT_API_URL = 'https://api.thecatapi.com/v1/breeds?limit=40';
+const CAT_API_URL = 'https://api.thecatapi.com/v1/breeds?limit=50';
 const REQUEST_INIT = {
     Headers: {
         'x-api-key': CAT_API_KEY
@@ -53,7 +53,7 @@ const getInfoList = ({ name, origin, child_friendly, energy_level, intelligence 
         const catList = await response.json();
         catList.forEach((item) => {
             const infoList = getInfoList(item);
-            if(item.image){
+            if (item.image && item.image.url) {
                 const template = getCardTemplate(item.image.url, infoList);
                 cardContentRef.append(template);
             }
