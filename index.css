@@ -26,6 +26,7 @@ body {
 .content-container {
   display: flex;
   flex-wrap: wrap;
+  font-size: 1.4rem;
   justify-content: center;
 }
 .card-container {

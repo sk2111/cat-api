@@ -51,6 +51,7 @@ const getInfoList = ({ name, origin, child_friendly, energy_level, intelligence 
     try {
         const response = await fetch(CAT_API_URL, REQUEST_INIT);
         const catList = await response.json();
+        cardContentRef.innerText = ''; //clear loading text
         catList.forEach((item) => {
             const infoList = getInfoList(item);
             if (item.image?.url) {
