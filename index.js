@@ -53,7 +53,7 @@ const getInfoList = ({ name, origin, child_friendly, energy_level, intelligence 
         const catList = await response.json();
         catList.forEach((item) => {
             const infoList = getInfoList(item);
-            if (item.image && item.image.url) {
+            if (item.image?.url) {
                 const template = getCardTemplate(item.image.url, infoList);
                 cardContentRef.append(template);
             }
